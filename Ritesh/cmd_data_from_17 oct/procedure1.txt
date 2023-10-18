@@ -1,0 +1,140 @@
+mysql> source C:\Users\IET\Documents\DBT\file_folder\pla3.sql
+Query OK, 0 rows affected, 1 warning (0.02 sec)
+
+Query OK, 0 rows affected (0.04 sec)
+
+mysql> call getQualification(3);
+ERROR 1052 (23000): Column 'id' in field list is ambiguous
+mysql> source C:\Users\IET\Documents\DBT\file_folder\pla3.sql
+Query OK, 0 rows affected (0.03 sec)
+
+Query OK, 0 rows affected (0.02 sec)
+
+mysql> call getQualification(3);
+ERROR 1172 (42000): Result consisted of more than one row
+mysql> source C:\Users\IET\Documents\DBT\file_folder\pla3.sql
+Query OK, 0 rows affected (0.02 sec)
+
+Query OK, 0 rows affected (0.02 sec)
+
+mysql> call getQualification(3);
+ERROR 1054 (42S22): Unknown column 'studentid' in 'field list'
+mysql> source C:\Users\IET\Documents\DBT\file_folder\pla3.sql
+Query OK, 0 rows affected (0.03 sec)
+
+Query OK, 0 rows affected (0.02 sec)
+
+mysql> call getQualification(3);
++----+-----------+----------+------------+----------------------+----+-----------+------+------------+-----------------------+-------+------+
+| ID | namefirst | namelast | DOB        | emailID              | ID | studentID | name | college    | university            | marks | year |
++----+-----------+----------+------------+----------------------+----+-----------+------+------------+-----------------------+-------+------+
+|  3 | ulka      | joshi    | 1970-10-25 | ulka.joshi@gmail.com |  7 |         3 | 10   | Arizona    | Yale University       | 75    | 2011 |
+|  3 | ulka      | joshi    | 1970-10-25 | ulka.joshi@gmail.com |  8 |         3 | 12   | California | California University | 86    | 2013 |
+|  3 | ulka      | joshi    | 1970-10-25 | ulka.joshi@gmail.com |  9 |         3 | BE   | Florida    | University of Florida | 67    | 2017 |
++----+-----------+----------+------------+----------------------+----+-----------+------+------------+-----------------------+-------+------+
+3 rows in set (0.01 sec)
+
+Query OK, 0 rows affected (0.03 sec)
+
+mysql> call getQualification(1);
++----+-----------+----------+------------+------------------------+----+-----------+------+---------+---------------------+-------+------+
+| ID | namefirst | namelast | DOB        | emailID                | ID | studentID | name | college | university          | marks | year |
++----+-----------+----------+------------+------------------------+----+-----------+------+---------+---------------------+-------+------+
+|  1 | saleel    | bagde    | 1984-06-12 | saleel.bagde@gmail.com |  1 |         1 | 10   | Alabama | Stanford University | 67    | 2012 |
+|  1 | saleel    | bagde    | 1984-06-12 | saleel.bagde@gmail.com |  2 |         1 | 12   | Alaska  | Harvard University  | 74    | 2014 |
+|  1 | saleel    | bagde    | 1984-06-12 | saleel.bagde@gmail.com |  3 |         1 | BE   | Arizona | Harvard University  | 68    | 2018 |
++----+-----------+----------+------------+------------------------+----+-----------+------+---------+---------------------+-------+------+
+3 rows in set (0.00 sec)
+
+Query OK, 0 rows affected (0.01 sec)
+
+mysql> source C:\Users\IET\Documents\DBT\file_folder\pla3.sql
+Query OK, 0 rows affected (0.04 sec)
+
+Query OK, 0 rows affected (0.02 sec)
+
+mysql> call getQualification(3);
++----+-----------+----------+------------+----------------------+----+-----------+------+------------+-----------------------+-------+------+
+| ID | namefirst | namelast | DOB        | emailID              | ID | studentID | name | college    | university            | marks | year |
++----+-----------+----------+------------+----------------------+----+-----------+------+------------+-----------------------+-------+------+
+|  3 | ulka      | joshi    | 1970-10-25 | ulka.joshi@gmail.com |  7 |         3 | 10   | Arizona    | Yale University       | 75    | 2011 |
+|  3 | ulka      | joshi    | 1970-10-25 | ulka.joshi@gmail.com |  8 |         3 | 12   | California | California University | 86    | 2013 |
+|  3 | ulka      | joshi    | 1970-10-25 | ulka.joshi@gmail.com |  9 |         3 | BE   | Florida    | University of Florida | 67    | 2017 |
++----+-----------+----------+------------+----------------------+----+-----------+------+------------+-----------------------+-------+------+
+3 rows in set (0.00 sec)
+
+Query OK, 0 rows affected (0.02 sec)
+
+mysql> source C:\Users\IET\Documents\DBT\file_folder\pla3.sql
+Query OK, 0 rows affected (0.05 sec)
+
+Query OK, 0 rows affected (0.02 sec)
+
+mysql> call getQualification(3);
++----+-----------+----------+------------+----------------------+----+-----------+------+------------+-----------------------+-------+------+
+| ID | namefirst | namelast | DOB        | emailID              | ID | studentID | name | college    | university            | marks | year |
++----+-----------+----------+------------+----------------------+----+-----------+------+------------+-----------------------+-------+------+
+|  3 | ulka      | joshi    | 1970-10-25 | ulka.joshi@gmail.com |  7 |         3 | 10   | Arizona    | Yale University       | 75    | 2011 |
+|  3 | ulka      | joshi    | 1970-10-25 | ulka.joshi@gmail.com |  8 |         3 | 12   | California | California University | 86    | 2013 |
+|  3 | ulka      | joshi    | 1970-10-25 | ulka.joshi@gmail.com |  9 |         3 | BE   | Florida    | University of Florida | 67    | 2017 |
++----+-----------+----------+------------+----------------------+----+-----------+------+------------+-----------------------+-------+------+
+3 rows in set (0.00 sec)
+
+Query OK, 0 rows affected (0.02 sec)
+
+mysql> call getQualification(1);
++----+-----------+----------+------------+------------------------+----+-----------+------+---------+---------------------+-------+------+
+| ID | namefirst | namelast | DOB        | emailID                | ID | studentID | name | college | university          | marks | year |
++----+-----------+----------+------------+------------------------+----+-----------+------+---------+---------------------+-------+------+
+|  1 | saleel    | bagde    | 1984-06-12 | saleel.bagde@gmail.com |  1 |         1 | 10   | Alabama | Stanford University | 67    | 2012 |
+|  1 | saleel    | bagde    | 1984-06-12 | saleel.bagde@gmail.com |  2 |         1 | 12   | Alaska  | Harvard University  | 74    | 2014 |
+|  1 | saleel    | bagde    | 1984-06-12 | saleel.bagde@gmail.com |  3 |         1 | BE   | Arizona | Harvard University  | 68    | 2018 |
++----+-----------+----------+------------+------------------------+----+-----------+------+---------+---------------------+-------+------+
+3 rows in set (0.00 sec)
+
+Query OK, 0 rows affected (0.02 sec)
+
+mysql> source C:\Users\IET\Documents\DBT\file_folder\Proc_assignment\pla4.sql
+Query OK, 0 rows affected, 1 warning (0.02 sec)
+
+Query OK, 0 rows affected (0.04 sec)
+
+mysql> call addStudent(1001,'riteshwa','maliksahab','rit@gmail.com','8087720617','Delhi');
+ERROR 1054 (42S22): Unknown column '_dob' in 'field list'
+mysql> call addStudent(1001,'riteshwa','maliksahab','2001-05-29','rit@gmail.com','8087720617','Delhi');
+ERROR 1318 (42000): Incorrect number of arguments for PROCEDURE dac20.addStudent; expected 6, got 7
+mysql> source C:\Users\IET\Documents\DBT\file_folder\Proc_assignment\pla4.sql
+Query OK, 0 rows affected (0.04 sec)
+
+Query OK, 0 rows affected (0.02 sec)
+
+mysql> call addStudent(1001,'riteshwa','maliksahab','2001-05-29','rit@gmail.com','8087720617','Delhi');
+ERROR 1364 (HY000): Field 'ID' doesn't have a default value
+mysql> desc student_phone;
++-----------+-------------+------+-----+---------+-------+
+| Field     | Type        | Null | Key | Default | Extra |
++-----------+-------------+------+-----+---------+-------+
+| ID        | int         | NO   | PRI | NULL    |       |
+| studentID | int         | YES  | MUL | NULL    |       |
+| number    | varchar(45) | YES  |     | NULL    |       |
+| isActive  | tinyint(1)  | YES  |     | NULL    |       |
++-----------+-------------+------+-----+---------+-------+
+4 rows in set (0.00 sec)
+
+mysql> source C:\Users\IET\Documents\DBT\file_folder\Proc_assignment\pla4.sql
+Query OK, 0 rows affected (0.08 sec)
+
+Query OK, 0 rows affected (0.03 sec)
+
+mysql> call addStudent(1001,'riteshwa','maliksahab','2001-05-29','rit@gmail.com','8087720617','Delhi');
+ERROR 1062 (23000): Duplicate entry '1001' for key 'student.PRIMARY'
+mysql> call addStudent(1111,'riteshwa','maliksahab','2001-05-29','rit@gmail.com','8087720617','Delhi');
+Query OK, 1 row affected (0.13 sec)
+
+mysql> select s.*,sp.*,sa.* from student s join student_phone sp join student_address sa on s.id=sp.studentid and s.id=sa.studentid where s.id=1111;
++------+-----------+------------+------------+---------------+-----+-----------+------------+----------+-----+-----------+---------+
+| ID   | namefirst | namelast   | DOB        | emailID       | ID  | studentID | number     | isActive | ID  | studentID | address |
++------+-----------+------------+------------+---------------+-----+-----------+------------+----------+-----+-----------+---------+
+| 1111 | riteshwa  | maliksahab | 2001-05-29 | rit@gmail.com | 500 |      1111 | 8087720617 |        1 | 500 |      1111 | Delhi   |
++------+-----------+------------+------------+---------------+-----+-----------+------------+----------+-----+-----------+---------+
+1 row in set (0.00 sec)
