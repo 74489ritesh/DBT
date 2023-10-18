@@ -1,0 +1,1055 @@
+Microsoft Windows [Version 10.0.19045.3570]
+(c) Microsoft Corporation. All rights reserved.
+
+C:\Users\IET>mysql --host=192.168.10.150 --port=3306 --user=dac20 --password=welcome
+mysql: [Warning] Using a password on the command line interface can be insecure.
+Welcome to the MySQL monitor.  Commands end with ; or \g.
+Your MySQL connection id is 419
+Server version: 8.1.0 MySQL Community Server - GPL
+
+Copyright (c) 2000, 2023, Oracle and/or its affiliates.
+
+Oracle is a registered trademark of Oracle Corporation and/or its
+affiliates. Other names may be trademarks of their respective
+owners.
+
+Type 'help;' or '\h' for help. Type '\c' to clear the current input statement.
+
+mysql> use dac20;
+Database changed
+mysql> source C:\Users\IET\Documents\DBT\file_folder\Func_assignment\fun1.sql
+Query OK, 0 rows affected, 1 warning (0.02 sec)
+
+Query OK, 0 rows affected (0.03 sec)
+
+mysql> call sumSalary(10);
+ERROR 1305 (42000): PROCEDURE dac20.sumSalary does not exist
+mysql> select sumSalary(10);
++---------------+
+| sumSalary(10) |
++---------------+
+|         13850 |
++---------------+
+1 row in set (0.07 sec)
+
+mysql> select sumSalary(20);
++---------------+
+| sumSalary(20) |
++---------------+
+|         19375 |
++---------------+
+1 row in set (0.00 sec)
+
+mysql> select sumSalary(114);
++----------------+
+| sumSalary(114) |
++----------------+
+|           NULL |
++----------------+
+1 row in set (0.00 sec)
+
+mysql> select sumSalary(50);
++---------------+
+| sumSalary(50) |
++---------------+
+|          5250 |
++---------------+
+1 row in set (0.00 sec)
+
+mysql> select sumSalary(60);
++---------------+
+| sumSalary(60) |
++---------------+
+|          NULL |
++---------------+
+1 row in set (0.00 sec)
+
+mysql> create table STUDENT_NEW (studentid int,namefirst varchar(20),namelast varchar(20),dob date, emailid varchar(20));
+Query OK, 0 rows affected (0.12 sec)
+
+mysql> desc STUDENT_NEW ;
++-----------+-------------+------+-----+---------+-------+
+| Field     | Type        | Null | Key | Default | Extra |
++-----------+-------------+------+-----+---------+-------+
+| studentid | int         | YES  |     | NULL    |       |
+| namefirst | varchar(20) | YES  |     | NULL    |       |
+| namelast  | varchar(20) | YES  |     | NULL    |       |
+| dob       | date        | YES  |     | NULL    |       |
+| emailid   | varchar(20) | YES  |     | NULL    |       |
++-----------+-------------+------+-----+---------+-------+
+5 rows in set (0.01 sec)
+
+mysql> select * from STUDENT_NEW;
+Empty set (0.00 sec)
+
+mysql> source C:\Users\IET\Documents\DBT\file_folder\Func_assignment\fun2.sql
+Query OK, 0 rows affected, 1 warning (0.02 sec)
+
+Query OK, 0 rows affected (0.05 sec)
+
+mysql> select autoNumber('ritesh','malik','1995-05-24','ritz@gmail.com');
+ERROR 1366 (HY000): Incorrect integer value: 'ritesh' for column '_fname' at row 1
+mysql> source C:\Users\IET\Documents\DBT\file_folder\Func_assignment\fun2.sql
+Query OK, 0 rows affected (0.05 sec)
+
+Query OK, 0 rows affected (0.01 sec)
+
+mysql> select * from STUDENT_NEW;
+Empty set (0.00 sec)
+
+mysql> select autoNumber('ritesh','malik','1995-05-24','ritz@gmail.com');
++------------------------------------------------------------+
+| autoNumber('ritesh','malik','1995-05-24','ritz@gmail.com') |
++------------------------------------------------------------+
+|                                                          0 |
++------------------------------------------------------------+
+1 row in set (0.05 sec)
+
+mysql> source C:\Users\IET\Documents\DBT\file_folder\Func_assignment\fun2.sql
+Query OK, 0 rows affected (0.04 sec)
+
+Query OK, 0 rows affected (0.01 sec)
+
+mysql> select * from STUDENT_NEW;
++-----------+-----------+----------+------------+----------------+
+| studentid | namefirst | namelast | dob        | emailid        |
++-----------+-----------+----------+------------+----------------+
+|         1 | ritesh    | malik    | 1995-05-24 | ritz@gmail.com |
++-----------+-----------+----------+------------+----------------+
+1 row in set (0.00 sec)
+
+mysql> select autoNumber('om','div','1995-05-29','om@gmail.com');
++----------------------------------------------------+
+| autoNumber('om','div','1995-05-29','om@gmail.com') |
++----------------------------------------------------+
+|                                                  2 |
++----------------------------------------------------+
+1 row in set (0.04 sec)
+
+mysql> select * from STUDENT_NEW;
++-----------+-----------+----------+------------+----------------+
+| studentid | namefirst | namelast | dob        | emailid        |
++-----------+-----------+----------+------------+----------------+
+|         1 | ritesh    | malik    | 1995-05-24 | ritz@gmail.com |
+|         2 | om        | div      | 1995-05-29 | om@gmail.com   |
++-----------+-----------+----------+------------+----------------+
+2 rows in set (0.00 sec)
+
+mysql> select * from login;
++----------+----------------+------+
+| username | email          | pwd  |
++----------+----------------+------+
+| ritesh   | ritz@gmail.com | rrr  |
+| omkar    | om@gmail.com   | 123  |
++----------+----------------+------+
+2 rows in set (0.00 sec)
+
+mysql> source C:\Users\IET\Documents\DBT\file_folder\Func_assignment\fun3.sql
+Query OK, 0 rows affected, 1 warning (0.03 sec)
+
+ERROR 1320 (42000): No RETURN found in FUNCTION dac20.accept_email
+mysql> source C:\Users\IET\Documents\DBT\file_folder\Func_assignment\fun3.sql
+Query OK, 0 rows affected, 1 warning (0.03 sec)
+
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'deterministic
+        SELECT TRUE into @ch from login where email=_emailid;
+        IF @ch THE' at line 2
+mysql> source C:\Users\IET\Documents\DBT\file_folder\Func_assignment\fun3.sql
+Query OK, 0 rows affected, 1 warning (0.02 sec)
+
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near ')
+deterministic
+        SELECT TRUE into @ch from login where email=_emailid;
+        IF @ch T' at line 1
+mysql> source C:\Users\IET\Documents\DBT\file_folder\Func_assignment\fun2.sql
+Query OK, 0 rows affected (0.05 sec)
+
+Query OK, 0 rows affected (0.02 sec)
+
+mysql> select accept_email('ritz@gmail.com');
+ERROR 1305 (42000): FUNCTION dac20.accept_email does not exist
+mysql> source C:\Users\IET\Documents\DBT\file_folder\Func_assignment\fun3.sql
+Query OK, 0 rows affected, 1 warning (0.03 sec)
+
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near ')
+deterministic
+        SELECT TRUE into @ch from login where email=_emailid;
+        IF @ch T' at line 1
+mysql> source C:\Users\IET\Documents\DBT\file_folder\Func_assignment\fun3.sql
+Query OK, 0 rows affected, 1 warning (0.03 sec)
+
+ERROR 1320 (42000): No RETURN found in FUNCTION dac20.accept_email
+mysql> source C:\Users\IET\Documents\DBT\file_folder\Func_assignment\fun3.sql
+Query OK, 0 rows affected, 1 warning (0.02 sec)
+
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'deterministic
+        SELECT TRUE into @ch from login where email=_emailid;
+        IF @ch THE' at line 2
+mysql> source C:\Users\IET\Documents\DBT\file_folder\Func_assignment\fun3.sql
+Query OK, 0 rows affected, 1 warning (0.03 sec)
+
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'deterministic
+        SELECT TRUE into @ch from login where email=_emailid;
+        IF @ch THE' at line 2
+mysql> source C:\Users\IET\Documents\DBT\file_folder\Func_assignment\fun3.sql
+Query OK, 0 rows affected, 1 warning (0.01 sec)
+
+ERROR 1320 (42000): No RETURN found in FUNCTION dac20.accept_email
+mysql> source C:\Users\IET\Documents\DBT\file_folder\Func_assignment\fun3.sql
+Query OK, 0 rows affected, 1 warning (0.03 sec)
+
+ERROR 1320 (42000): No RETURN found in FUNCTION dac20.accept_email
+mysql> source C:\Users\IET\Documents\DBT\file_folder\Func_assignment\fun3.sql
+Query OK, 0 rows affected, 1 warning (0.03 sec)
+
+ERROR 1320 (42000): No RETURN found in FUNCTION dac20.accept_email
+mysql> source C:\Users\IET\Documents\DBT\file_folder\Func_assignment\fun3.sql
+Query OK, 0 rows affected, 1 warning (0.02 sec)
+
+ERROR 1320 (42000): No RETURN found in FUNCTION dac20.accept_email
+mysql> source C:\Users\IET\Documents\DBT\file_folder\Func_assignment\fun3.sql
+Query OK, 0 rows affected, 1 warning (0.03 sec)
+
+Query OK, 0 rows affected (0.03 sec)
+
+mysql> select accept_email('ritz@gmail.com');
++--------------------------------+
+| accept_email('ritz@gmail.com') |
++--------------------------------+
+| ritesh                         |
++--------------------------------+
+1 row in set (0.02 sec)
+
+mysql> select accept_email('rit214z@gmail.com');
++-----------------------------------+
+| accept_email('rit214z@gmail.com') |
++-----------------------------------+
+| Employee not exists               |
++-----------------------------------+
+1 row in set (0.02 sec)
+
+mysql> source C:\Users\IET\Documents\DBT\file_folder\Func_assignment\fun3.sql
+Query OK, 0 rows affected (0.07 sec)
+
+Query OK, 0 rows affected (0.03 sec)
+
+mysql> select accept_email('ritz@gmail.com');
++--------------------------------+
+| accept_email('ritz@gmail.com') |
++--------------------------------+
+| ritesh                         |
++--------------------------------+
+1 row in set (0.02 sec)
+
+mysql> select accept_email('rit214z@gmail.com');
++-----------------------------------+
+| accept_email('rit214z@gmail.com') |
++-----------------------------------+
+| ritesh                            |
++-----------------------------------+
+1 row in set (0.02 sec)
+
+mysql> select * from login;
++----------+----------------+------+
+| username | email          | pwd  |
++----------+----------------+------+
+| ritesh   | ritz@gmail.com | rrr  |
+| omkar    | om@gmail.com   | 123  |
++----------+----------------+------+
+2 rows in set (0.02 sec)
+
+mysql> select accept_email('rit2141z@gmail.com');
++------------------------------------+
+| accept_email('rit2141z@gmail.com') |
++------------------------------------+
+| ritesh                             |
++------------------------------------+
+1 row in set (0.02 sec)
+
+mysql> source C:\Users\IET\Documents\DBT\file_folder\Func_assignment\fun3.sql
+Query OK, 0 rows affected (0.06 sec)
+
+Query OK, 0 rows affected (0.04 sec)
+
+mysql> select accept_email('ritz@gmail.com');
++--------------------------------+
+| accept_email('ritz@gmail.com') |
++--------------------------------+
+| ritesh                         |
++--------------------------------+
+1 row in set (0.02 sec)
+
+mysql> select accept_email('rit214z@gmail.com');
++-----------------------------------+
+| accept_email('rit214z@gmail.com') |
++-----------------------------------+
+| Employee not exists               |
++-----------------------------------+
+1 row in set (0.02 sec)
+
+mysql> source C:\Users\IET\Documents\DBT\file_folder\Func_assignment\fun3.sql
+Query OK, 0 rows affected (0.02 sec)
+
+Query OK, 0 rows affected (0.02 sec)
+
+mysql> select accept_email('ritz@gmail.com');
+ERROR 1222 (21000): The used SELECT statements have a different number of columns
+mysql> select accept_email('rit214z@gmail.com');
++-----------------------------------+
+| accept_email('rit214z@gmail.com') |
++-----------------------------------+
+| Employee not exists               |
++-----------------------------------+
+1 row in set (0.00 sec)
+
+mysql> source C:\Users\IET\Documents\DBT\file_folder\Func_assignment\fun3.sql
+Query OK, 0 rows affected (0.05 sec)
+
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near ',@y;
+end' at line 12
+mysql> source C:\Users\IET\Documents\DBT\file_folder\Func_assignment\fun3.sql
+Query OK, 0 rows affected, 1 warning (0.03 sec)
+
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '@x =SELECT CONCAT(@x," ",@y);
+        return @x;
+end' at line 12
+mysql> source C:\Users\IET\Documents\DBT\file_folder\Func_assignment\fun3.sql
+Query OK, 0 rows affected, 1 warning (0.02 sec)
+
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'SELECT CONCAT(@x," ",@y);
+        return @x;
+end' at line 12
+mysql> source C:\Users\IET\Documents\DBT\file_folder\Func_assignment\fun3.sql
+Query OK, 0 rows affected, 1 warning (0.02 sec)
+
+Query OK, 0 rows affected (0.04 sec)
+
+mysql> select accept_email('ritz@gmail.com');
++--------------------------------+
+| accept_email('ritz@gmail.com') |
++--------------------------------+
+| ritesh rrr                     |
++--------------------------------+
+1 row in set (0.00 sec)
+
+mysql> source C:\Users\IET\Documents\DBT\file_folder\Func_assignment\fun2.sql
+Query OK, 0 rows affected (0.05 sec)
+
+Query OK, 0 rows affected (0.02 sec)
+
+mysql> select accept_email('ritz@gmail.com');
++--------------------------------+
+| accept_email('ritz@gmail.com') |
++--------------------------------+
+| ritesh rrr                     |
++--------------------------------+
+1 row in set (0.00 sec)
+
+mysql> select accept_email('ritz@gmail.com');
++--------------------------------+
+| accept_email('ritz@gmail.com') |
++--------------------------------+
+| ritesh rrr                     |
++--------------------------------+
+1 row in set (0.00 sec)
+
+mysql> source C:\Users\IET\Documents\DBT\file_folder\Func_assignment\fun3.sql
+Query OK, 0 rows affected (0.05 sec)
+
+Query OK, 0 rows affected (0.02 sec)
+
+mysql> select accept_email('ritz@gmail.com');
++--------------------------------+
+| accept_email('ritz@gmail.com') |
++--------------------------------+
+| ritesh password=rrr            |
++--------------------------------+
+1 row in set (0.00 sec)
+
+mysql> select accept_email('rit214z@gmail.com');
++-----------------------------------+
+| accept_email('rit214z@gmail.com') |
++-----------------------------------+
+| Employee not exists               |
++-----------------------------------+
+1 row in set (0.00 sec)
+
+mysql> source C:\Users\IET\Documents\DBT\file_folder\Func_assignment\fun3.sql
+Query OK, 0 rows affected (0.06 sec)
+
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'as 'Info';
+end' at line 11
+mysql> source C:\Users\IET\Documents\DBT\file_folder\Func_assignment\fun3.sql
+Query OK, 0 rows affected, 1 warning (0.03 sec)
+
+Query OK, 0 rows affected (0.06 sec)
+
+mysql> select accept_email('rit214z@gmail.com');
++-----------------------------------+
+| accept_email('rit214z@gmail.com') |
++-----------------------------------+
+| Employee not exists               |
++-----------------------------------+
+1 row in set (0.00 sec)
+
+mysql>
+mysql> select accept_email('ritz@gmail.com');
++--------------------------------+
+| accept_email('ritz@gmail.com') |
++--------------------------------+
+| ritesh  ,   password=rrr       |
++--------------------------------+
+1 row in set (0.00 sec)
+
+mysql> select accept_email('ritz@gmail.com') as 'info';
++--------------------------+
+| info                     |
++--------------------------+
+| ritesh  ,   password=rrr |
++--------------------------+
+1 row in set (0.00 sec)
+
+mysql> source C:\Users\IET\Documents\DBT\file_folder\Func_assignment\fun4.sql
+Query OK, 0 rows affected, 1 warning (0.02 sec)
+
+Query OK, 0 rows affected (0.04 sec)
+
+mysql> select calculate_sum(1);
++------------------+
+| calculate_sum(1) |
++------------------+
+|              209 |
++------------------+
+1 row in set (0.00 sec)
+
+mysql> select calculate_sum(2);
++------------------+
+| calculate_sum(2) |
++------------------+
+|              188 |
++------------------+
+1 row in set (0.00 sec)
+
+mysql> source C:\Users\IET\Documents\DBT\file_folder\Func_assignment\fun4.sql
+Query OK, 0 rows affected (0.06 sec)
+
+Query OK, 0 rows affected (0.03 sec)
+
+mysql> select calculate_sum(1);
++------------------+
+| calculate_sum(1) |
++------------------+
+|              209 |
++------------------+
+1 row in set (0.02 sec)
+
+mysql> source C:\Users\IET\Documents\DBT\file_folder\Func_assignment\fun4.sql
+Query OK, 0 rows affected (0.05 sec)
+
+Query OK, 0 rows affected (0.04 sec)
+
+mysql> select calculate_sum(1);
++------------------+
+| calculate_sum(1) |
++------------------+
+|              209 |
++------------------+
+1 row in set (0.02 sec)
+
+mysql> source C:\Users\IET\Documents\DBT\file_folder\Func_assignment\fun5.sql
+Query OK, 0 rows affected, 1 warning (0.02 sec)
+
+Query OK, 0 rows affected (0.04 sec)
+
+mysql> select otp_generator() as OTP;
++--------+
+| OTP    |
++--------+
+| 438929 |
++--------+
+1 row in set (0.02 sec)
+
+mysql> select otp_generator() as OTP;
++--------+
+| OTP    |
++--------+
+| 616260 |
++--------+
+1 row in set (0.02 sec)
+
+mysql> select otp_generator() as OTP;
++--------+
+| OTP    |
++--------+
+| 764514 |
++--------+
+1 row in set (0.02 sec)
+
+mysql> select otp_generator() as OTP;
++--------+
+| OTP    |
++--------+
+| 973791 |
++--------+
+1 row in set (0.02 sec)
+
+mysql> select otp_generator() as OTP;
++--------+
+| OTP    |
++--------+
+| 575414 |
++--------+
+1 row in set (0.02 sec)
+
+mysql> select otp_generator() as OTP;
++--------+
+| OTP    |
++--------+
+| 955696 |
++--------+
+1 row in set (0.02 sec)
+
+mysql> select otp_generator() as OTP;
++-------+
+| OTP   |
++-------+
+| 52240 |
++-------+
+1 row in set (0.02 sec)
+
+mysql> select otp_generator() as OTP;
++--------+
+| OTP    |
++--------+
+| 394109 |
++--------+
+1 row in set (0.02 sec)
+
+mysql> source C:\Users\IET\Documents\DBT\file_folder\Func_assignment\fun5.sql
+Query OK, 0 rows affected (0.05 sec)
+
+Query OK, 0 rows affected (0.01 sec)
+
+mysql> select otp_generator() as OTP;
++--------+
+| OTP    |
++--------+
+| 813826 |
++--------+
+1 row in set (0.00 sec)
+
+mysql> source C:\Users\IET\Documents\DBT\file_folder\Func_assignment\fun5.sql
+Query OK, 0 rows affected (0.04 sec)
+
+Query OK, 0 rows affected (0.04 sec)
+
+mysql> select otp_generator() as OTP;
++--------+
+| OTP    |
++--------+
+| 886806 |
++--------+
+1 row in set (0.00 sec)
+
+mysql> select otp_generator() as OTP;
++--------+
+| OTP    |
++--------+
+| 992552 |
++--------+
+1 row in set (0.00 sec)
+
+mysql> select otp_generator() as OTP;
++--------+
+| OTP    |
++--------+
+| 302343 |
++--------+
+1 row in set (0.00 sec)
+
+mysql> select otp_generator() as OTP;
++--------+
+| OTP    |
++--------+
+| 534060 |
++--------+
+1 row in set (0.00 sec)
+
+mysql> select otp_generator() as OTP;
++--------+
+| OTP    |
++--------+
+| 763269 |
++--------+
+1 row in set (0.00 sec)
+
+mysql> select otp_generator() as OTP;
++--------+
+| OTP    |
++--------+
+| 214168 |
++--------+
+1 row in set (0.00 sec)
+
+mysql> select otp_generator() as OTP;
++--------+
+| OTP    |
++--------+
+| 781034 |
++--------+
+1 row in set (0.00 sec)
+
+mysql> select otp_generator() as OTP;
++--------+
+| OTP    |
++--------+
+| 262666 |
++--------+
+1 row in set (0.00 sec)
+
+mysql> select otp_generator() as OTP;
++--------+
+| OTP    |
++--------+
+| 970230 |
++--------+
+1 row in set (0.00 sec)
+
+mysql> select otp_generator() as OTP;
++-------+
+| OTP   |
++-------+
+| 63150 |
++-------+
+1 row in set (0.00 sec)
+
+mysql> select otp_generator() as OTP;
++--------+
+| OTP    |
++--------+
+| 405059 |
++--------+
+1 row in set (0.00 sec)
+
+mysql> source C:\Users\IET\Documents\DBT\file_folder\Func_assignment\fun5.sql
+Query OK, 0 rows affected (0.05 sec)
+
+Query OK, 0 rows affected (0.02 sec)
+
+mysql> select otp_generator() as OTP;
++--------+
+| OTP    |
++--------+
+| 656319 |
++--------+
+1 row in set (0.00 sec)
+
+mysql> select otp_generator() as OTP;
++--------+
+| OTP    |
++--------+
+| 656319 |
++--------+
+1 row in set (0.00 sec)
+
+mysql> select otp_generator() as OTP;
++--------+
+| OTP    |
++--------+
+| 656319 |
++--------+
+1 row in set (0.02 sec)
+
+mysql> select otp_generator() as OTP;
++--------+
+| OTP    |
++--------+
+| 656319 |
++--------+
+1 row in set (0.02 sec)
+
+mysql> select otp_generator() as OTP;
++--------+
+| OTP    |
++--------+
+| 656319 |
++--------+
+1 row in set (0.02 sec)
+
+mysql> select otp_generator() as OTP;
++--------+
+| OTP    |
++--------+
+| 656319 |
++--------+
+1 row in set (0.02 sec)
+
+mysql> select otp_generator() as OTP;
++--------+
+| OTP    |
++--------+
+| 656319 |
++--------+
+1 row in set (0.02 sec)
+
+mysql> select otp_generator() as OTP;
++--------+
+| OTP    |
++--------+
+| 656319 |
++--------+
+1 row in set (0.02 sec)
+
+mysql> select otp_generator() as OTP;
++--------+
+| OTP    |
++--------+
+| 656319 |
++--------+
+1 row in set (0.02 sec)
+
+mysql> select otp_generator() as OTP;
++--------+
+| OTP    |
++--------+
+| 656319 |
++--------+
+1 row in set (0.02 sec)
+
+mysql> select otp_generator() as OTP;
++--------+
+| OTP    |
++--------+
+| 656319 |
++--------+
+1 row in set (0.02 sec)
+
+mysql> select otp_generator() as OTP;
++--------+
+| OTP    |
++--------+
+| 656319 |
++--------+
+1 row in set (0.02 sec)
+
+mysql> select otp_generator() as OTP;
++--------+
+| OTP    |
++--------+
+| 656319 |
++--------+
+1 row in set (0.02 sec)
+
+mysql> select otp_generator() as OTP;
++--------+
+| OTP    |
++--------+
+| 656319 |
++--------+
+1 row in set (0.02 sec)
+
+mysql> source C:\Users\IET\Documents\DBT\file_folder\Func_assignment\fun5.sql
+Query OK, 0 rows affected (0.05 sec)
+
+Query OK, 0 rows affected (0.02 sec)
+
+mysql> select otp_generator() as OTP;
++--------+
+| OTP    |
++--------+
+| 835849 |
++--------+
+1 row in set (0.00 sec)
+
+mysql> select otp_generator() as OTP;
++--------+
+| OTP    |
++--------+
+| 964066 |
++--------+
+1 row in set (0.00 sec)
+
+mysql> select otp_generator() as OTP;
++--------+
+| OTP    |
++--------+
+| 312784 |
++--------+
+1 row in set (0.00 sec)
+
+mysql> select otp_generator() as OTP;
++--------+
+| OTP    |
++--------+
+| 671721 |
++--------+
+1 row in set (0.00 sec)
+
+mysql> select otp_generator() as OTP;
++--------+
+| OTP    |
++--------+
+| 420256 |
++--------+
+1 row in set (0.00 sec)
+
+mysql> select otp_generator() as OTP;
++-------+
+| OTP   |
++-------+
+| 86115 |
++-------+
+1 row in set (0.00 sec)
+
+mysql>
+
+
+
+
+
+       source C:\Users\IET\Documents\DBT\file_folder\Func_assignment\fun5.sql
+Query OK, 0 rows affected (0.02 sec)
+
+Query OK, 0 rows affected (0.02 sec)
+
+mysql> select otp_generator() as OTP;
++----------+
+| OTP      |
++----------+
+| 0.169811 |
++----------+
+1 row in set (0.00 sec)
+
+mysql> select otp_generator() as OTP;
++----------+
+| OTP      |
++----------+
+| 0.590706 |
++----------+
+1 row in set (0.00 sec)
+
+mysql> select otp_generator() as OTP;
++----------+
+| OTP      |
++----------+
+| 0.444099 |
++----------+
+1 row in set (0.00 sec)
+
+mysql> select otp_generator() as OTP;
++----------+
+| OTP      |
++----------+
+| 0.448375 |
++----------+
+1 row in set (0.00 sec)
+
+mysql> select otp_generator() as OTP;
++---------+
+| OTP     |
++---------+
+| 0.90958 |
++---------+
+1 row in set (0.00 sec)
+
+mysql> select otp_generator() as OTP;
++----------+
+| OTP      |
++----------+
+| 0.202774 |
++----------+
+1 row in set (0.00 sec)
+
+mysql> select otp_generator() as OTP;
++----------+
+| OTP      |
++----------+
+| 0.285129 |
++----------+
+1 row in set (0.00 sec)
+
+mysql> select otp_generator() as OTP;
++----------+
+| OTP      |
++----------+
+| 0.817325 |
++----------+
+1 row in set (0.00 sec)
+
+mysql> select otp_generator() as OTP;
++----------+
+| OTP      |
++----------+
+| 0.231238 |
++----------+
+1 row in set (0.00 sec)
+
+mysql> select otp_generator() as OTP;
++----------+
+| OTP      |
++----------+
+| 0.704214 |
++----------+
+1 row in set (0.00 sec)
+
+mysql> select otp_generator() as OTP;
++----------+
+| OTP      |
++----------+
+| 0.827358 |
++----------+
+1 row in set (0.00 sec)
+
+mysql> select otp_generator() as OTP;
++-----------+
+| OTP       |
++-----------+
+| 0.0241448 |
++-----------+
+1 row in set (0.00 sec)
+
+mysql> source C:\Users\IET\Documents\DBT\file_folder\Func_assignment\fun5.sql
+Query OK, 0 rows affected (0.03 sec)
+
+Query OK, 0 rows affected (0.06 sec)
+
+mysql> select otp_generator() as OTP;
++------+
+| OTP  |
++------+
+| 7386 |
++------+
+1 row in set (0.00 sec)
+
+mysql> source C:\Users\IET\Documents\DBT\file_folder\Func_assignment\fun5.sql
+Query OK, 0 rows affected (0.05 sec)
+
+Query OK, 0 rows affected (0.02 sec)
+
+mysql> select otp_generator() as OTP;
++--------+
+| OTP    |
++--------+
+| 121822 |
++--------+
+1 row in set (0.00 sec)
+
+mysql> select otp_generator() as OTP;
++--------+
+| OTP    |
++--------+
+| 689159 |
++--------+
+1 row in set (0.00 sec)
+
+mysql> select otp_generator() as OTP;
++-------+
+| OTP   |
++-------+
+| 79327 |
++-------+
+1 row in set (0.00 sec)
+
+mysql> source C:\Users\IET\Documents\DBT\file_folder\Func_assignment\fun5.sql
+Query OK, 0 rows affected (0.04 sec)
+
+Query OK, 0 rows affected (0.02 sec)
+
+mysql> select otp_generator() as OTP;
++--------+
+| OTP    |
++--------+
+| 394443 |
++--------+
+1 row in set (0.00 sec)
+
+mysql> select otp_generator() as OTP;
++--------+
+| OTP    |
++--------+
+| 460734 |
++--------+
+1 row in set (0.00 sec)
+
+mysql> select otp_generator() as OTP;
++--------+
+| OTP    |
++--------+
+| 120342 |
++--------+
+1 row in set (0.00 sec)
+
+mysql> select otp_generator() as OTP;
++--------+
+| OTP    |
++--------+
+| 919508 |
++--------+
+1 row in set (0.00 sec)
+
+mysql> select otp_generator() as OTP;
++--------+
+| OTP    |
++--------+
+| 536514 |
++--------+
+1 row in set (0.00 sec)
+
+mysql> select otp_generator() as OTP;
++--------+
+| OTP    |
++--------+
+| 724045 |
++--------+
+1 row in set (0.00 sec)
+
+mysql> select otp_generator() as OTP;
++--------+
+| OTP    |
++--------+
+| 110686 |
++--------+
+1 row in set (0.00 sec)
+
+mysql> select otp_generator() as OTP;
++--------+
+| OTP    |
++--------+
+| 981295 |
++--------+
+1 row in set (0.00 sec)
+
+mysql> select otp_generator() as OTP;
++--------+
+| OTP    |
++--------+
+| 874418 |
++--------+
+1 row in set (0.00 sec)
+
+mysql> select otp_generator() as OTP;
++--------+
+| OTP    |
++--------+
+| 428206 |
++--------+
+1 row in set (0.00 sec)
+
+mysql> select otp_generator() as OTP;
++--------+
+| OTP    |
++--------+
+| 317776 |
++--------+
+1 row in set (0.00 sec)
+
+mysql>
+mysql> select otp_generator() as OTP;
++--------+
+| OTP    |
++--------+
+| 204261 |
++--------+
+1 row in set (0.00 sec)
+
+mysql>
